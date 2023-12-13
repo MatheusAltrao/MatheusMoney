@@ -97,12 +97,12 @@ const ClearTable = () => {
                                             referência futura.
                                         </p>
 
-                                        <div className='overflow-hidden rounded-sm h-10 px-3  mb-4 w-[140px]'>
+                                        <div className='overflow-hidden bg-[#4caf50] rounded-sm h-10 px-3  flex items-center justify-center'>
                                             <abbr title='Fazer backup'>
                                                 <JsonToExcel
                                                     colors='bg-zinc-900'
                                                     title={
-                                                        <p className='text-sm font-normal '>
+                                                        <p className='text-base font-normal '>
                                                             Backup
                                                         </p>
                                                     }
