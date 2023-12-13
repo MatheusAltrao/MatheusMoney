@@ -144,15 +144,17 @@ const TransactionTable = () => {
                             <ClearTable />
                         </Dialog.Root>
 
-                        <abbr title='Fazer backup'>
-                            <JsonToExcel
-                                colors='bg-zinc-900'
-                                title={<DownloadSimple size={20} />}
-                                data={transactions}
-                                fileName={`Transações-${date}`}
-                                btnClassName='btn-dowload btn-big'
-                            />
-                        </abbr>
+                        <div className='overflow-hidden btn-big'>
+                            <abbr title='Fazer backup'>
+                                <JsonToExcel
+                                    colors='bg-zinc-900'
+                                    title={<DownloadSimple size={20} />}
+                                    data={transactions}
+                                    fileName={`Transações-${date}`}
+                                    btnClassName='btn-dowload btn-big'
+                                />
+                            </abbr>
+                        </div>
                     </div>
                 )}
             </div>
