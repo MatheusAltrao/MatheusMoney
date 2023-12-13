@@ -7,9 +7,11 @@ import * as Dialog from '@radix-ui/react-dialog';
 import ClearTable from './Popups/ClearTable';
 // @ts-expect-error erro de tipagem
 import { JsonToExcel } from 'react-json-to-excel';
+import { isAfter, isBefore } from 'date-fns';
 
 const TransactionTable = () => {
-    const { transactions, deleteTransaction } = useContext(TransactionsContext);
+    const { transactions, deleteTransaction, startDate, endDate } =
+        useContext(TransactionsContext);
     const [searchValue, setSearchValue] = useState('');
     const [selectTypeFilter, setSelectTypeFilter] = useState('all');
 
@@ -37,23 +39,40 @@ const TransactionTable = () => {
     }, [transactions, selectTypeFilter]);
 
     const filteredTransactions = useMemo(() => {
-        return filteredTypeTransactions.filter((transaction) => {
-            const searchValueLowerCase = searchValue.toLowerCase();
+        return filteredTypeTransactions
+            .filter((transaction) => {
+                const searchValueLowerCase = searchValue.toLowerCase();
 
-            return (
-                transaction.title
-                    .toLowerCase()
-                    .includes(searchValueLowerCase) ||
-                transaction.price
-                    .toLowerCase()
-                    .includes(searchValueLowerCase) ||
-                transaction.category
-                    .toLowerCase()
-                    .includes(searchValueLowerCase) ||
-                transaction.date.toLowerCase().includes(searchValueLowerCase)
-            );
-        });
-    }, [searchValue, filteredTypeTransactions]);
+                return (
+                    transaction.title
+                        .toLowerCase()
+                        .includes(searchValueLowerCase) ||
+                    transaction.price
+                        .toLowerCase()
+                        .includes(searchValueLowerCase) ||
+                    transaction.category
+                        .toLowerCase()
+                        .includes(searchValueLowerCase) ||
+                    transaction.date
+                        .toLowerCase()
+                        .includes(searchValueLowerCase)
+                );
+            })
+            .filter((transaction) => {
+                if (startDate && endDate) {
+                    const saleStartDate = new Date(transaction.date);
+                    const formatStartDate = new Date(startDate);
+                    const formatEndDate = new Date(endDate);
+
+                    return (
+                        isAfter(saleStartDate, formatStartDate) &&
+                        isBefore(saleStartDate, formatEndDate)
+                    );
+                } else {
+                    return true;
+                }
+            });
+    }, [searchValue, filteredTypeTransactions, startDate, endDate]);
 
     return (
         <div>

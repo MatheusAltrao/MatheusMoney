@@ -1,7 +1,17 @@
 import { X } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
+import { useContext } from 'react';
+import { TransactionsContext } from '../../context/TransactionsContext';
 
 const DateFilter = () => {
+    const {
+        endDate,
+        startDate,
+        handleEndDate,
+        handleStartDate,
+        handleResetDates,
+    } = useContext(TransactionsContext);
+
     return (
         <Dialog.Portal>
             <Dialog.Overlay
@@ -28,8 +38,34 @@ const DateFilter = () => {
                         </Dialog.Close>
                     </header>
 
+                    <div className='p-4 space-y-4'>
+                        <div className='space-y-2'>
+                            <p>Data de início</p>
+                            <input
+                                value={startDate}
+                                onChange={handleStartDate}
+                                className='bg-zinc-800 focus:outline-none text-zinc-200 h-10 rounded w-full px-4 cursor-pointer '
+                                type='date'
+                            />
+                        </div>
+
+                        <div className='space-y-2'>
+                            <p>Data de fim</p>
+                            <input
+                                value={endDate}
+                                onChange={handleEndDate}
+                                className='bg-zinc-800 focus:outline-none text-zinc-200 h-10 rounded w-full px-4 cursor-pointer '
+                                type='date'
+                                min={startDate}
+                            />
+                        </div>
+                    </div>
+
                     <div className='flex items-center justify-center border-t border-zinc-500 gap-4 p-4'>
-                        <Dialog.Close className='btn-secondary bg-red-600'>
+                        <Dialog.Close
+                            onClick={handleResetDates}
+                            className='btn-secondary bg-red-600'
+                        >
                             Cancelar
                         </Dialog.Close>
 

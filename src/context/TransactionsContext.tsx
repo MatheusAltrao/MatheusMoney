@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
 
 export interface TransactionType {
@@ -15,6 +16,12 @@ interface TransactionsContextProps {
     addNewTransaction: (transaction: TransactionType) => void;
     clearTransaction: () => void;
     deleteTransaction: (transactionId: string) => void;
+    startDate: string;
+    endDate: string;
+    handleStartDate: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleEndDate: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleResetDates: () => void;
+    showDateFilterResult: () => ReactNode | undefined;
 }
 
 export const TransactionsContext = createContext<TransactionsContextProps>({
@@ -23,12 +30,23 @@ export const TransactionsContext = createContext<TransactionsContextProps>({
     addNewTransaction: () => {},
     clearTransaction: () => {},
     deleteTransaction: () => {},
+    startDate: '',
+    endDate: '',
+    handleStartDate: () => {},
+    handleEndDate: () => {},
+    handleResetDates: () => {},
+    showDateFilterResult: () => undefined,
 });
 
 const TransactionsProvider = ({ children }: { children: ReactNode }) => {
     const [transactions, setTransactions] = useState<TransactionType[]>(
         JSON.parse(localStorage.getItem('@matheus-money/transactions') || '[]'),
     );
+
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
+    /*   const [dateResult, setDateResult] = useState(''); */
 
     useEffect(() => {
         localStorage.setItem(
@@ -81,6 +99,35 @@ const TransactionsProvider = ({ children }: { children: ReactNode }) => {
         return setTransactions(transactionWithoutOne);
     };
 
+    const handleStartDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setStartDate(e.target.value);
+    };
+
+    const handleEndDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEndDate(e.target.value);
+    };
+
+    const handleResetDates = () => {
+        setStartDate('');
+        setEndDate('');
+    };
+
+    const showDateFilterResult = () => {
+        if (startDate && endDate) {
+            const formatStartDate = format(new Date(startDate), 'dd/MM/yyyy');
+            const formatEndtDate = format(new Date(endDate), 'dd/MM/yyyy');
+
+            return (
+                <div className='flex items-center justify-start gap-2 '>
+                    <p>{formatStartDate}</p>
+                    <div className='w-2 h-px bg-zinc-200' />
+                    <p>{formatEndtDate}</p>
+                </div>
+            );
+        } else {
+            return <p>Selecionar Data</p>;
+        }
+    };
     return (
         <div>
             <TransactionsContext.Provider
@@ -90,6 +137,12 @@ const TransactionsProvider = ({ children }: { children: ReactNode }) => {
                     addNewTransaction,
                     clearTransaction,
                     deleteTransaction,
+                    startDate,
+                    endDate,
+                    handleStartDate,
+                    handleEndDate,
+                    handleResetDates,
+                    showDateFilterResult,
                 }}
             >
                 {children}
