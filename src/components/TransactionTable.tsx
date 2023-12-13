@@ -11,6 +11,7 @@ import { isAfter, isBefore } from 'date-fns';
 const TransactionTable = () => {
     const { transactions, deleteTransaction, startDate, endDate } =
         useContext(TransactionsContext);
+
     const [searchValue, setSearchValue] = useState('');
     const [selectTypeFilter, setSelectTypeFilter] = useState('all');
 
@@ -72,7 +73,7 @@ const TransactionTable = () => {
     }, [searchValue, filteredTypeTransactions, startDate, endDate]);
 
     return (
-        <div>
+        <div className='pb-10'>
             <SearchTransactions
                 selectTypeFilter={selectTypeFilter}
                 setSelectTypeFilter={setSelectTypeFilter}
@@ -80,30 +81,33 @@ const TransactionTable = () => {
                 setSearchValue={setSearchValue}
             />
 
-            <div className='grid-table  px-8 text-zinc-500 mb-4 w-full'>
+            <div className='grid  grid-cols-[1fr_1fr_1fr_20px]  md:grid-cols-[4fr_1fr_1fr_1fr_1fr_20px]  px-2 md:px-8 text-zinc-500 mb-4 w-full'>
                 <p>Título</p>
                 <p>Preço</p>
-                <p>Categoria</p>
-                <p>Tipo</p>
+                <p className='hidden  md:inline'>Categoria</p>
+                <p className='hidden md:inline'>Tipo</p>
                 <p>Data</p>
             </div>
 
             <div>
-                <div className='flex flex-col gap-2 max-h-[400px] overflow-y-auto scrollbar pr-2 '>
+                <div className='flex flex-col gap-2 min-h-[300px] max-h-[300px]  overflow-y-auto scrollbar pr-2 '>
                     {filteredTransactions.map((transaction, index) => (
-                        <div key={index} className='transaction'>
+                        <div
+                            key={index}
+                            className='  grid grid-cols-[1fr_1fr_1fr_20px]  md:grid-cols-[4fr_1fr_1fr_1fr_1fr_20px] px-4 py-5 md:px-8 transaction '
+                        >
                             <div>
                                 <p>{transaction.title}</p>
                             </div>
-                            <div>
-                                <p className={`${transaction.type}`}>
+                            <div className='w-[130px]'>
+                                <p className={`${transaction.type}  truncate`}>
                                     {formatPrice(transaction.price)}
                                 </p>
                             </div>
-                            <div>
+                            <div className='hidden md:block'>
                                 <p>{transaction.category}</p>
                             </div>
-                            <div>
+                            <div className='hidden md:block'>
                                 <p>
                                     {transaction.type == 'deposit'
                                         ? 'Depósito'

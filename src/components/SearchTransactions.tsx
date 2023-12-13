@@ -24,8 +24,8 @@ const SearchTransactions = ({
     };
 
     return (
-        <div className='flex items-center gap-4  mt-16 mb-8'>
-            <div className='flex  items-center gap-2 bg-zinc-900 h-10 rounded  px-2 flex-1'>
+        <div className='flex md:flex-row w-full flex-col items-center gap-4  mt-16 mb-8'>
+            <div className='flex  items-center gap-2 w-full bg-zinc-900 h-10 rounded  px-2 md:flex-1'>
                 <MagnifyingGlass size={20} className='text-zinc-300' />
                 <input
                     value={searchValue}
@@ -47,7 +47,7 @@ const SearchTransactions = ({
                 </button>
             </div>
 
-            <div className='relative flex items-center justify-between w-full max-w-[250px]   h-10 rounded overflow-hidden  bg-zinc-900'>
+            <div className='relative flex items-center justify-between w-full md:max-w-[250px]   h-10 rounded overflow-hidden  bg-zinc-900'>
                 <select
                     value={selectTypeFilter}
                     onChange={(e) => setSelectTypeFilter(e.target.value)}
@@ -74,7 +74,7 @@ const SearchTransactions = ({
             <Dialog.Root>
                 <Dialog.Trigger
                     asChild
-                    className=' cursor-pointer w-full max-w-[250px] h-10 rounded overflow-hidden  bg-zinc-900 px-2 '
+                    className=' cursor-pointer w-full md:max-w-[250px] h-10 rounded overflow-hidden  bg-zinc-900 px-2 '
                 >
                     <div className='flex items-center justify-between'>
                         {showDateFilterResult()}

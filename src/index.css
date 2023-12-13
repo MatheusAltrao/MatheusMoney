@@ -40,12 +40,8 @@ html {
     @apply antialiased;
 }
 
-.grid-table {
-    @apply grid grid-cols-[4fr_1fr_1fr_1fr_1fr_20px] items-center;
-}
-
 .transaction {
-    @apply grid-table items-center  text-left bg-zinc-900 rounded px-8 py-5 hover:bg-zinc-800 transition-colors;
+    @apply items-center  text-left bg-zinc-900 rounded  hover:bg-zinc-800 transition-colors;
 }
 
 .deposit {
