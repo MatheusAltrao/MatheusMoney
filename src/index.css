@@ -17,21 +17,6 @@ button {
     @apply w-[140px] h-10 rounded flex items-center justify-center hover:opacity-80 transition-opacity font-semibold;
 }
 
-.btn-dowload {
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    padding: 0 0.75rem;
-    justify-content: center;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    height: 2.5rem;
-}
-
-.btn-dowload:hover {
-    opacity: 0.7;
-}
-
 .btn-small-dowload {
     border-radius: 4px;
     display: flex;
@@ -40,6 +25,26 @@ button {
     justify-content: center;
     transition: all 0.2s ease;
     text-decoration: none;
+    padding: 2px;
+}
+
+.btn-big-dowload {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    justify-content: center;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.btn-small-dowload:hover {
+    opacity: 0.7;
+}
+
+.btn-big-dowload:hover {
+    opacity: 0.7;
 }
 
 html {

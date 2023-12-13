@@ -143,18 +143,17 @@ const TransactionTable = () => {
                             </Dialog.Trigger>
                             <ClearTable />
                         </Dialog.Root>
-
                         <abbr title='Fazer backup'>
                             <JsonToExcel
                                 colors='bg-zinc-900'
                                 title={
-                                    <p className='text-sm whitespace-nowrap '>
+                                    <p className='text-base font-normal '>
                                         Fazer Backup
                                     </p>
                                 }
                                 data={transactions}
                                 fileName={`Transações-${date}`}
-                                btnClassName='btn-secondary '
+                                btnClassName='btn-big-dowload'
                             />
                         </abbr>
                     </div>
