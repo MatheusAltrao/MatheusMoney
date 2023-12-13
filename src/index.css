@@ -53,3 +53,27 @@ html {
 .ball {
     @apply w-2 h-2 rounded-full bg-zinc-200 mt-2;
 }
+
+.btn-dowload {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+}
+
+.btn-dowload:hover {
+    opacity: 0.7;
+}
+
+.btn-small {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.btn-big {
+    height: 40px;
+    width: 48px;
+}

@@ -150,7 +150,7 @@ const TransactionTable = () => {
                                 title={<DownloadSimple size={20} />}
                                 data={transactions}
                                 fileName={`Transações-${date}`}
-                                btnClassName='rounded flex items-center justify-center h-10 p-0 w-12 hover:opacity-70 transition-colors'
+                                btnClassName='btn-dowload btn-big'
                             />
                         </abbr>
                     </div>

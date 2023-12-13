@@ -106,7 +106,7 @@ const ClearTable = () => {
                                                     }
                                                     data={transactions}
                                                     fileName={`Transações-${date}`}
-                                                    btnClassName='rounded flex items-center p-0 justify-center h-5  w-5 hover:opacity-70 transition-colors'
+                                                    btnClassName='btn-dowload btn-small'
                                                 />
                                             </div>
                                         </abbr>
