@@ -1,6 +1,8 @@
 import { Calendar, CaretDown, MagnifyingGlass, X } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import DateFilter from './Popups/DateFilter';
+import { useContext } from 'react';
+import { TransactionsContext } from '../context/TransactionsContext';
 
 interface SearchTransactionsProps {
     searchValue: string;
@@ -15,6 +17,8 @@ const SearchTransactions = ({
     selectTypeFilter,
     setSelectTypeFilter,
 }: SearchTransactionsProps) => {
+    const { showDateFilterResult } = useContext(TransactionsContext);
+
     const clearSearchInput = () => {
         setSearchValue('');
     };
@@ -43,7 +47,7 @@ const SearchTransactions = ({
                 </button>
             </div>
 
-            <div className='relative flex items-center justify-between w-full max-w-[200px]   h-10 rounded overflow-hidden  bg-zinc-900'>
+            <div className='relative flex items-center justify-between w-full max-w-[250px]   h-10 rounded overflow-hidden  bg-zinc-900'>
                 <select
                     value={selectTypeFilter}
                     onChange={(e) => setSelectTypeFilter(e.target.value)}
@@ -70,10 +74,10 @@ const SearchTransactions = ({
             <Dialog.Root>
                 <Dialog.Trigger
                     asChild
-                    className=' cursor-pointer w-full max-w-[200px] h-10 rounded overflow-hidden  bg-zinc-900 px-2 '
+                    className=' cursor-pointer w-full max-w-[250px] h-10 rounded overflow-hidden  bg-zinc-900 px-2 '
                 >
                     <div className='flex items-center justify-between'>
-                        <p>Selecionar Data</p>
+                        {showDateFilterResult()}
                         <Calendar size={20} className='text-zinc-200' />
                     </div>
                 </Dialog.Trigger>

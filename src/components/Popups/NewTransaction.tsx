@@ -4,7 +4,11 @@ import { FormEvent, useContext, useState } from 'react';
 import { TransactionsContext } from '../../context/TransactionsContext';
 import { v4 as uuid } from 'uuid';
 
-const NewTransaction = () => {
+interface NewTransactionProps {
+    setDialogOpen: (v: boolean) => void;
+}
+
+const NewTransaction = ({ setDialogOpen }: NewTransactionProps) => {
     const { addNewTransaction } = useContext(TransactionsContext);
 
     const [title, setTitle] = useState('');
@@ -26,6 +30,7 @@ const NewTransaction = () => {
 
         addNewTransaction(newTransaction);
         handleResetFieldsForm();
+        setDialogOpen(false);
     };
 
     const handleResetFieldsForm = () => {
