@@ -5,7 +5,6 @@ import SearchTransactions from './SearchTransactions';
 import { DownloadSimple, Trash } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import ClearTable from './Popups/ClearTable';
-// @ts-expect-error erro de tipagem
 import { JsonToExcel } from 'react-json-to-excel';
 import { isAfter, isBefore } from 'date-fns';
 
@@ -149,6 +148,7 @@ const TransactionTable = () => {
 
                         <abbr title='Fazer backup'>
                             <JsonToExcel
+                                colors='bg-zinc-900'
                                 title={<DownloadSimple size={20} />}
                                 data={transactions}
                                 fileName={`Transações-${date}`}

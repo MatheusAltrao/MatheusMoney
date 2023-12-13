@@ -2,8 +2,6 @@ import { DownloadSimple, X } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useContext } from 'react';
 import { TransactionsContext } from '../../context/TransactionsContext';
-
-// @ts-expect-error erro de tipagem
 import { JsonToExcel } from 'react-json-to-excel';
 
 const ClearTable = () => {
