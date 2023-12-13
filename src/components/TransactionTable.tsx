@@ -143,7 +143,7 @@ const TransactionTable = () => {
                             </Dialog.Trigger>
                             <ClearTable />
                         </Dialog.Root>
-                        <div className='overflow-hidden h-10 px-3  flex items-center justify-center'>
+                        <div className='overflow-hidden rounded-sm h-10 px-3  flex items-center justify-center'>
                             <abbr title='Fazer backup'>
                                 <JsonToExcel
                                     colors='bg-zinc-900'

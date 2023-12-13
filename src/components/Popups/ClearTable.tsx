@@ -103,7 +103,7 @@ const ClearTable = () => {
                                                     colors='bg-zinc-900'
                                                     title={
                                                         <p className='text-sm font-normal '>
-                                                            Fazer Backup
+                                                            Backup
                                                         </p>
                                                     }
                                                     data={transactions}
