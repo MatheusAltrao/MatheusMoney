@@ -1,13 +1,10 @@
-import { DownloadSimple, X } from '@phosphor-icons/react';
+import { X } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useContext } from 'react';
 import { TransactionsContext } from '../../context/TransactionsContext';
-import { JsonToExcel } from 'react-json-to-excel';
 
 const ClearTable = () => {
-    const { clearTransaction, transactions } = useContext(TransactionsContext);
-
-    const date = new Date().toLocaleDateString();
+    const { clearTransaction } = useContext(TransactionsContext);
 
     return (
         <Dialog.Portal>
@@ -90,27 +87,11 @@ const ClearTable = () => {
                                 <div className='grid grid-cols-[8px_1fr]  gap-2'>
                                     <div className='ball' />
 
-                                    <div className='relative'>
-                                        <p className='font-normal text-zinc-400'>
-                                            Exporte ou faça backup do histórico
-                                            de pagamentos, se necessário, para
-                                            referência futura.
-                                        </p>
-                                        <abbr title='Fazer backup'>
-                                            <div className='absolute right-[90px] top-6'>
-                                                <JsonToExcel
-                                                    title={
-                                                        <DownloadSimple
-                                                            size={20}
-                                                        />
-                                                    }
-                                                    data={transactions}
-                                                    fileName={`Transações-${date}`}
-                                                    btnClassName='btn-dowload btn-small'
-                                                />
-                                            </div>
-                                        </abbr>
-                                    </div>
+                                    <p className='font-normal text-zinc-400'>
+                                        Exporte ou faça backup do histórico de
+                                        pagamentos, se necessário, para
+                                        referência futura.
+                                    </p>
                                 </div>
 
                                 <div className='grid grid-cols-[8px_1fr]  gap-2'>

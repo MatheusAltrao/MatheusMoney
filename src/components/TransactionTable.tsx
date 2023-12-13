@@ -2,7 +2,7 @@ import { useContext, useMemo, useState } from 'react';
 import { TransactionsContext } from '../context/TransactionsContext';
 import formatPrice from '../utils/FormatPrice';
 import SearchTransactions from './SearchTransactions';
-import { DownloadSimple, Trash } from '@phosphor-icons/react';
+import { Divide, DownloadSimple, Trash } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import ClearTable from './Popups/ClearTable';
 import { JsonToExcel } from 'react-json-to-excel';
@@ -148,7 +148,11 @@ const TransactionTable = () => {
                             <abbr title='Fazer backup'>
                                 <JsonToExcel
                                     colors='bg-zinc-900'
-                                    title={<DownloadSimple size={20} />}
+                                    title={
+                                        <div className='h-full w-full flex items-center justify-center'>
+                                            <DownloadSimple size={20} />
+                                        </div>
+                                    }
                                     data={transactions}
                                     fileName={`Transações-${date}`}
                                     btnClassName='btn-dowload btn-big'
