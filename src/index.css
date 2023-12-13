@@ -26,6 +26,7 @@ button {
     transition: all 0.2s ease;
     text-decoration: none;
     padding: 2px;
+    height: 30px;
 }
 
 .btn-big-dowload {
@@ -37,6 +38,7 @@ button {
     transition: all 0.2s ease;
     text-decoration: none;
     padding: 8px;
+    height: 40px;
 }
 
 .btn-small-dowload:hover {
