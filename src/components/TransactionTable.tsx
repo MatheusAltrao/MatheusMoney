@@ -81,13 +81,15 @@ const TransactionTable = () => {
                 setSearchValue={setSearchValue}
             />
 
-            <div className='grid  grid-cols-[1fr_1fr_1fr_20px]  md:grid-cols-[4fr_1fr_1fr_1fr_1fr_20px]  px-2 md:px-8 text-zinc-500 mb-4 w-full'>
-                <p>Título</p>
-                <p>Preço</p>
-                <p className='hidden  md:inline'>Categoria</p>
-                <p className='hidden md:inline'>Tipo</p>
-                <p>Data</p>
-            </div>
+            {filteredTransactions.length > 0 && (
+                <div className='grid  grid-cols-[1fr_1fr_1fr_20px]  md:grid-cols-[4fr_1fr_1fr_1fr_1fr_20px]  px-2 md:px-8 text-zinc-500 mb-4 w-full'>
+                    <p>Título</p>
+                    <p>Preço</p>
+                    <p className='hidden  md:inline'>Categoria</p>
+                    <p className='hidden md:inline'>Tipo</p>
+                    <p>Data</p>
+                </div>
+            )}
 
             <div>
                 <div className='flex flex-col gap-2 min-h-[300px] max-h-[300px]  overflow-y-auto scrollbar pr-2 '>
