@@ -100,7 +100,7 @@ const ClearTable = () => {
                                             <JsonToExcel
                                                 colors='bg-zinc-900'
                                                 title={
-                                                    <p className='text-xs '>
+                                                    <p className='text-base '>
                                                         Fazer Backup
                                                     </p>
                                                 }

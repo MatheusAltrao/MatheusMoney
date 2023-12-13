@@ -137,7 +137,7 @@ const TransactionTable = () => {
                     <div className='flex items-center justify-center w-full mt-12 gap-2 '>
                         <Dialog.Root>
                             <Dialog.Trigger asChild>
-                                <button className='btn-secondary decoration-n bg-transparent transition-colors border border-zinc-600'>
+                                <button className='btn-secondary  bg-transparent transition-colors border border-zinc-600'>
                                     Limpar Histórico
                                 </button>
                             </Dialog.Trigger>
@@ -147,10 +147,14 @@ const TransactionTable = () => {
                         <abbr title='Fazer backup'>
                             <JsonToExcel
                                 colors='bg-zinc-900'
-                                title={<p className=''>Fazer Backup</p>}
+                                title={
+                                    <p className='text-sm whitespace-nowrap '>
+                                        Fazer Backup
+                                    </p>
+                                }
                                 data={transactions}
                                 fileName={`Transações-${date}`}
-                                btnClassName='btn-dowload'
+                                btnClassName='btn-secondary '
                             />
                         </abbr>
                     </div>
