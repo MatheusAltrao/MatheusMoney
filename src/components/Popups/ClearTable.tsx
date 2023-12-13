@@ -97,7 +97,7 @@ const ClearTable = () => {
                                             referência futura.
                                         </p>
 
-                                        <div className='overflow-hidden h-10 px-3  mb-4 w-[140px]'>
+                                        <div className='overflow-hidden rounded-sm h-10 px-3  mb-4 w-[140px]'>
                                             <abbr title='Fazer backup'>
                                                 <JsonToExcel
                                                     colors='bg-zinc-900'
