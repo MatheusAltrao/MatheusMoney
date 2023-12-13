@@ -2,10 +2,10 @@ import { useContext, useMemo, useState } from 'react';
 import { TransactionsContext } from '../context/TransactionsContext';
 import formatPrice from '../utils/FormatPrice';
 import SearchTransactions from './SearchTransactions';
-import { Trash } from '@phosphor-icons/react';
+import { DownloadSimple, Trash } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import ClearTable from './Popups/ClearTable';
-//import { JsonToExcel } from 'react-json-to-excel';
+import { JsonToExcel } from 'react-json-to-excel';
 import { isAfter, isBefore } from 'date-fns';
 
 const TransactionTable = () => {
@@ -14,25 +14,11 @@ const TransactionTable = () => {
     const [searchValue, setSearchValue] = useState('');
     const [selectTypeFilter, setSelectTypeFilter] = useState('all');
 
-    //adicionar filtro de data
-
     const handleDeleteTrasaction = (transactionId: string) => {
         deleteTransaction(transactionId);
     };
 
-    // const date = new Date().toLocaleDateString();
-
-    /* 
-     <abbr title='Fazer backup'>
-                            <JsonToExcel
-                                colors='bg-zinc-900'
-                                title={<DownloadSimple size={20} />}
-                                data={transactions}
-                                fileName={`Transações-${date}`}
-                                btnClassName='rounded flex items-center justify-center h-10 p-0 w-12 hover:opacity-70 transition-colors'
-                            />
-                        </abbr>
-                         */
+    const date = new Date().toLocaleDateString();
 
     const filteredTypeTransactions = useMemo(() => {
         if (selectTypeFilter === 'all') {
@@ -157,6 +143,16 @@ const TransactionTable = () => {
                             </Dialog.Trigger>
                             <ClearTable />
                         </Dialog.Root>
+
+                        <abbr title='Fazer backup'>
+                            <JsonToExcel
+                                colors='bg-zinc-900'
+                                title={<DownloadSimple size={20} />}
+                                data={transactions}
+                                fileName={`Transações-${date}`}
+                                btnClassName='rounded flex items-center justify-center h-10 p-0 w-12 hover:opacity-70 transition-colors'
+                            />
+                        </abbr>
                     </div>
                 )}
             </div>

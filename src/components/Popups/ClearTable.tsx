@@ -1,13 +1,13 @@
-import { X } from '@phosphor-icons/react';
+import { DownloadSimple, X } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useContext } from 'react';
 import { TransactionsContext } from '../../context/TransactionsContext';
-//import { JsonToExcel } from 'react-json-to-excel';
+import { JsonToExcel } from 'react-json-to-excel';
 
 const ClearTable = () => {
-    const { clearTransaction } = useContext(TransactionsContext);
+    const { clearTransaction, transactions } = useContext(TransactionsContext);
 
-    //   const date = new Date().toLocaleDateString();
+    const date = new Date().toLocaleDateString();
 
     return (
         <Dialog.Portal>
@@ -96,7 +96,7 @@ const ClearTable = () => {
                                             de pagamentos, se necessário, para
                                             referência futura.
                                         </p>
-                                        {/*  <abbr title='Fazer backup'>
+                                        <abbr title='Fazer backup'>
                                             <div className='absolute right-[90px] top-6'>
                                                 <JsonToExcel
                                                     title={
@@ -109,7 +109,7 @@ const ClearTable = () => {
                                                     btnClassName='rounded flex items-center p-0 justify-center h-5  w-5 hover:opacity-70 transition-colors'
                                                 />
                                             </div>
-                                        </abbr> */}
+                                        </abbr>
                                     </div>
                                 </div>
 
