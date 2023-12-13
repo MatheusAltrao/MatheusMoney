@@ -2,9 +2,12 @@ import { X } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useContext } from 'react';
 import { TransactionsContext } from '../../context/TransactionsContext';
+import { JsonToExcel } from 'react-json-to-excel';
 
 const ClearTable = () => {
-    const { clearTransaction } = useContext(TransactionsContext);
+    const { clearTransaction, transactions } = useContext(TransactionsContext);
+
+    const date = new Date().toLocaleDateString();
 
     return (
         <Dialog.Portal>
@@ -87,11 +90,26 @@ const ClearTable = () => {
                                 <div className='grid grid-cols-[8px_1fr]  gap-2'>
                                     <div className='ball' />
 
-                                    <p className='font-normal text-zinc-400'>
-                                        Exporte ou faça backup do histórico de
-                                        pagamentos, se necessário, para
-                                        referência futura.
-                                    </p>
+                                    <div className='relative'>
+                                        <p className='font-normal text-zinc-400'>
+                                            Exporte ou faça backup do histórico
+                                            de pagamentos, se necessário, para
+                                            referência futura.
+                                        </p>
+                                        <abbr title='Fazer backup'>
+                                            <JsonToExcel
+                                                colors='bg-zinc-900'
+                                                title={
+                                                    <p className='text-xs '>
+                                                        Fazer Backup
+                                                    </p>
+                                                }
+                                                data={transactions}
+                                                fileName={`Transações-${date}`}
+                                                btnClassName='btn-small-dowload'
+                                            />
+                                        </abbr>
+                                    </div>
                                 </div>
 
                                 <div className='grid grid-cols-[8px_1fr]  gap-2'>

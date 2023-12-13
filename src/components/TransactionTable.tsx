@@ -137,28 +137,22 @@ const TransactionTable = () => {
                     <div className='flex items-center justify-center w-full mt-12 gap-2 '>
                         <Dialog.Root>
                             <Dialog.Trigger asChild>
-                                <button className='btn-secondary bg-transparent transition-colors border border-zinc-600'>
+                                <button className='btn-secondary decoration-n bg-transparent transition-colors border border-zinc-600'>
                                     Limpar Histórico
                                 </button>
                             </Dialog.Trigger>
                             <ClearTable />
                         </Dialog.Root>
 
-                        <div className='overflow-hidden btn-big'>
-                            <abbr title='Fazer backup'>
-                                <JsonToExcel
-                                    colors='bg-zinc-900'
-                                    title={
-                                        <div className='h-full w-full flex items-center justify-center'>
-                                            <DownloadSimple size={20} />
-                                        </div>
-                                    }
-                                    data={transactions}
-                                    fileName={`Transações-${date}`}
-                                    btnClassName='btn-dowload btn-big'
-                                />
-                            </abbr>
-                        </div>
+                        <abbr title='Fazer backup'>
+                            <JsonToExcel
+                                colors='bg-zinc-900'
+                                title={<p className=''>Fazer Backup</p>}
+                                data={transactions}
+                                fileName={`Transações-${date}`}
+                                btnClassName='btn-dowload'
+                            />
+                        </abbr>
                     </div>
                 )}
             </div>
