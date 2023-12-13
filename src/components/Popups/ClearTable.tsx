@@ -96,19 +96,22 @@ const ClearTable = () => {
                                             de pagamentos, se necessário, para
                                             referência futura.
                                         </p>
-                                        <abbr title='Fazer backup'>
-                                            <JsonToExcel
-                                                colors='bg-zinc-900'
-                                                title={
-                                                    <p className='text-base font-normal '>
-                                                        Fazer Backup
-                                                    </p>
-                                                }
-                                                data={transactions}
-                                                fileName={`Transações-${date}`}
-                                                btnClassName='btn-small-dowload'
-                                            />
-                                        </abbr>
+
+                                        <div className='overflow-hidden h-10 px-3  mb-4 w-[140px]'>
+                                            <abbr title='Fazer backup'>
+                                                <JsonToExcel
+                                                    colors='bg-zinc-900'
+                                                    title={
+                                                        <p className='text-sm font-normal '>
+                                                            Fazer Backup
+                                                        </p>
+                                                    }
+                                                    data={transactions}
+                                                    fileName={`Transações-${date}`}
+                                                    btnClassName='btn-dowload'
+                                                />
+                                            </abbr>
+                                        </div>
                                     </div>
                                 </div>
 
