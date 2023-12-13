@@ -2,7 +2,7 @@ import { useContext, useMemo, useState } from 'react';
 import { TransactionsContext } from '../context/TransactionsContext';
 import formatPrice from '../utils/FormatPrice';
 import SearchTransactions from './SearchTransactions';
-import { Divide, DownloadSimple, Trash } from '@phosphor-icons/react';
+import { Trash } from '@phosphor-icons/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import ClearTable from './Popups/ClearTable';
 import { JsonToExcel } from 'react-json-to-excel';
