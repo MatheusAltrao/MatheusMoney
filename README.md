@@ -28,3 +28,23 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+<p align="center">
+  <img alt="" src="https://i.pinimg.com/originals/26/0d/b4/260db400a988ae75c05e9db4928041d2.png" width="100%">
+</p>
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+-   ReactJS
+-   Vitejs
+-   LocalStorage
+-   Javascript
+-   Tailwind
+
+
+## 🚧 Projeto:
+
+Projeto para você conseguir controlar as suas finanças e baixar elas em formato de execel
